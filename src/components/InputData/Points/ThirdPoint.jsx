@@ -7,7 +7,6 @@ import style from './FirstPoint.module.css'
 const ThirdPoint = ({addPoint}) => {
 
     const submit = (formData) => {
-        console.log("Input coordinate:", formData)
         addPoint(formData)
     }
 
