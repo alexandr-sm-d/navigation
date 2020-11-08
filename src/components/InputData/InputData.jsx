@@ -9,11 +9,9 @@ import DataTime from "./DataTime";
 export const InputData = props => {
     return (
         <div className={style.input}>
-            Input Point
             <FirstPoint/>
             <SecondPoint/>
             <ThirdPoint/>
-            Input Time
             <DataTime/>
         </div>
     )

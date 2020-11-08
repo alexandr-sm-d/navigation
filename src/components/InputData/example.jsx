@@ -101,7 +101,7 @@ export const Example2 = ({data}) => {
             options={config.options}
             series={config.series}
             type="line"
-            width="500"
+            width="600"
         />
     )
 }

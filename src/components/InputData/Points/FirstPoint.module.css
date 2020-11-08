@@ -1,0 +1,19 @@
+.form h6 {
+    display: inline;
+}
+
+.formTime h6 {
+    display: inline;
+    padding-right: 5px;
+}
+
+.secPoint {
+    position: relative;
+    left: 3px;
+}
+
+.form {
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: space-between;
+}

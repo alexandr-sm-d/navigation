@@ -1,6 +1,8 @@
 import {Field, reduxForm} from "redux-form";
 import {connect} from "react-redux";
 import {addPoint} from "./FirstPoint";
+import style from './FirstPoint.module.css'
+
 
 const ThirdPoint = ({addPoint}) => {
 
@@ -20,16 +22,17 @@ const ThirdPoint = ({addPoint}) => {
 
 const ThirdPointForm = props => {
     return (
-        <div className={""}>
-            <h3>Third Point:</h3>
+        <div className={style.form}>
             <form onSubmit={props.handleSubmit}>
+                <h6>Введите координаты третьего радиоприемника: </h6>
                 <Field
                     type="number"
                     autoComplete='off'
                     required
                     component='input'
                     name="x"
-                    placeholder="Enter X"
+                    placeholder="x"
+                    style={{width: '30px', marginRight: '15px'}}
                 />
                 <Field
                     type="number"
@@ -37,11 +40,10 @@ const ThirdPointForm = props => {
                     required
                     component='input'
                     name="y"
-                    placeholder="Enter Y"
+                    placeholder="y"
+                    style={{width: '30px', marginRight: '15px'}}
                 />
-                <div>
-                    <button>Save</button>
-                </div>
+                <button className={'btn'}>Добавить</button>
             </form>
         </div>
     )

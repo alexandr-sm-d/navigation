@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import * as axios from 'axios';
 import {setPoint, setTargetWay} from "../../Chart/Reducer/actionCreators";
 import {getWay} from "../../../logic/logic";
+import style from './FirstPoint.module.css'
 
 const FirstPoint = ({addPoint}) => {
 
@@ -22,16 +23,17 @@ const FirstPoint = ({addPoint}) => {
 
 const FirstPointForm = props => {
     return (
-        <div className={""}>
-            <h3>First Point:</h3>
+        <div className={style.form}>
             <form onSubmit={props.handleSubmit}>
+                <h6>Введите координаты первого радиоприемника: </h6>
                 <Field
                     type="number"
                     autoComplete='off'
                     required
                     component='input'
                     name="x"
-                    placeholder="Enter X"
+                    placeholder="x"
+                    style={{width: '30px', marginRight: '15px'}}
                 />
                 <Field
                     type="number"
@@ -39,11 +41,10 @@ const FirstPointForm = props => {
                     required
                     component='input'
                     name="y"
-                    placeholder="Enter Y"
+                    placeholder="y"
+                    style={{width: '30px', marginRight: '15px'}}
                 />
-                <div>
-                    <button>Save</button>
-                </div>
+                <button className={'btn small'}>Добавить</button>
             </form>
         </div>
     )
@@ -77,7 +78,7 @@ const getTargetCoordinate = () => async (dispatch, getState) => {
                 let y3 = getState().data.coordinateThirdRadioreceiver.y
                 let processedData = JSON.parse(data).map(el => `${el.t1};${el.t2};${el.t3}`)
 
-                let newData = getWay(x1,y1,x2,y2,x3,y3,processedData)
+                let newData = getWay(x1, y1, x2, y2, x3, y3, processedData)
 
                 return newData
             }
