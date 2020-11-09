@@ -23,7 +23,7 @@ const DataTimeForm = props => {
         <div className={style.formTime}>
             <form onSubmit={props.handleSubmit}>
                 <div>
-                    <h6>Введите время прох-ия сигнала до 1 приемника:</h6>
+                    <h6>Введите время прох-ия сигнала до 1 приемника (с):</h6>
                     <Field
                         type="number"
                         autoComplete='off'
@@ -35,7 +35,7 @@ const DataTimeForm = props => {
                     />
                 </div>
                 <div>
-                    <h6>Введите время прох-ия сигнала до 2 приемника:</h6>
+                    <h6>Введите время прох-ия сигнала до 2 приемника (с):</h6>
                     <Field
                         type="number"
                         autoComplete='off'
@@ -47,7 +47,7 @@ const DataTimeForm = props => {
                     />
                 </div>
                 <div>
-                    <h6>Введите время прох-ия сигнала до 3 приемника:</h6>
+                    <h6>Введите время прох-ия сигнала до 3 приемника (с):</h6>
                     <Field
                         type="number"
                         autoComplete='off'

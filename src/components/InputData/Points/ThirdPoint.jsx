@@ -23,7 +23,7 @@ const ThirdPointForm = props => {
     return (
         <div className={style.form}>
             <form onSubmit={props.handleSubmit}>
-                <h6>Введите координаты третьего радиоприемника: </h6>
+                <h6>Введите координаты третьего радиоприемника (км): </h6>
                 <Field
                     type="number"
                     autoComplete='off'

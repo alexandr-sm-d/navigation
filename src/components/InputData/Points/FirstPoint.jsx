@@ -1,4 +1,4 @@
-import {Field, reduxForm} from "redux-form";
+import {Field, reduxForm, reset} from "redux-form";
 import {connect} from "react-redux";
 import * as axios from 'axios';
 import {setPoint, setTargetWay} from "../../Chart/Reducer/actionCreators";
@@ -25,7 +25,7 @@ const FirstPointForm = props => {
     return (
         <div className={style.form}>
             <form onSubmit={props.handleSubmit}>
-                <h6>Введите координаты первого радиоприемника: </h6>
+                <h6>Введите координаты первого радиоприемника (км): </h6>
                 <Field
                     type="number"
                     autoComplete='off'
@@ -55,15 +55,14 @@ const FirstPointReduxForm = reduxForm({
 })(FirstPointForm)
 
 export const addPoint = (formData) => async dispatch => {
-    // debugger
     await axios.put('/coordinats/' + formData.id, formData)
     dispatch(getPoints(formData.id))
 }
 
 export const addTime = (formData) => async dispatch => {
-    // debugger
     await axios.post('/time_data', formData)
     dispatch(getTargetCoordinate())
+    dispatch(reset('data_time'))
 }
 
 const getTargetCoordinate = () => async (dispatch, getState) => {

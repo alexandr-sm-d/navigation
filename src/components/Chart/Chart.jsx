@@ -1,15 +1,64 @@
 import React from 'react'
-import style from './Chart.module.css'
-import {Example2} from "../InputData/example";
 import {connect} from "react-redux";
+import Line from "react-apexcharts";
 
 const Chart = ({data}) => {
-    console.log('CHART RERENDER')
+    const config = {
+        options: {
+            chart: {
+                toolbar: {
+                    show: true,
+                },
+            },
+            xaxis: {
+                type: 'numeric',
+                min: -10,
+                max: 10,
+            },
+            yaxis: {
+                type: 'numeric',
+                min: -10,
+                max: 10,
+            },
+        },
+
+        series: [
+            {
+                name: 'first Point',
+                data: [{
+                    x: data.coordinateFirstRadioreciever.x,
+                    y: data.coordinateFirstRadioreciever.y,
+                }],
+            },
+            {
+                name: 'second Point',
+                data: [{
+                    x: data.coordinateSecondRadioreciever.x,
+                    y: data.coordinateSecondRadioreciever.y,
+                }],
+            },
+            {
+                name: 'third Point',
+                data: [{
+                    x: data.coordinateThirdRadioreceiver.x,
+                    y: data.coordinateThirdRadioreceiver.y,
+                }],
+            },
+            {
+                name: 'target',
+                seriesIndex: 2,
+                data: data.distanceList
+            }
+        ],
+    };
+
     return (
-        <div className={style.chart}>
-            Chart
-            <Example2 data={data}/>
-        </div>
+        <Line
+            options={config.options}
+            series={config.series}
+            type="line"
+            width="600"
+        />
     )
 }
 
